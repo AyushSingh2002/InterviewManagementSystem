@@ -87,4 +87,20 @@ public class CandidateService
       return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
   }
+
+  public ResponseEntity<CandidateEntity> addCandidateResume(Long id, String resume)
+  {
+    Optional<CandidateEntity> optionalCandidate = candidateRepo.findById(id);
+    if(optionalCandidate.isPresent())
+    {
+      CandidateEntity candidate = optionalCandidate.get();
+      candidate.setResume(resume);
+      candidateRepo.save(candidate);
+      return new ResponseEntity<>(candidate, HttpStatus.OK);
+    }
+    else
+    {
+      return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    }
+  }
 }

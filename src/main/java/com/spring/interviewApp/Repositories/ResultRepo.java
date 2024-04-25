@@ -7,5 +7,5 @@ import com.spring.interviewApp.Entities.ResultEntity;
 
 public interface ResultRepo extends JpaRepository<ResultEntity, CandidateInterviewLink>
 {
-  
+
 }
