@@ -72,4 +72,10 @@ public class InterviewService
     resultRepo.save(result);
     return new ResponseEntity<>(result, HttpStatus.OK);
   }
+
+  public ResponseEntity<List<InterviewEntity>> getAllInterviews()
+  {
+    List<InterviewEntity> interviews = interviewRepo.findAll();
+    return new ResponseEntity<>(interviews, HttpStatus.OK);
+  }
 }

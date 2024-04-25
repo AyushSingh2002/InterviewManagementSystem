@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -39,5 +40,11 @@ public class InterviewController
   public ResponseEntity<ResultEntity> setResult(@PathVariable("interviewId") Long iId, @PathVariable("candidateId") Long cId, @RequestBody String status)
   {
     return interviewService.setResult(iId, cId, status);
+  }
+
+  @GetMapping("/get-all-interviews")
+  public ResponseEntity<List<InterviewEntity>> getAllInterviews()
+  {
+    return interviewService.getAllInterviews();
   }
 }
